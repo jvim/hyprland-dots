@@ -1,0 +1,118 @@
+{
+    "layer": "top",
+    "position": "top",
+    "exclusive": "true",
+    "passthrough": "false",
+    "height": "20",
+    "gtk-layer-shell": true,
+
+    "modules-left": ["hyprland/workspaces"],
+    "modules-center": ["clock"],
+    "modules-right": ["cpu", "custom/divider", "memory", "custom/divider", "battery", "custom/divider", "backlight", "custom/divider", "pulseaudio", "custom/divider", "custom/keyboard", "tray"],
+
+    "clock": {
+        "format": " {:%a, %e %b, %H:%M}"
+    },
+
+    "hyprland/workspaces": {
+        "format": "{name}",
+        "format-icons": {
+            "1": "1",
+            "2": "2",
+            "3": "3",
+            "4": "4",
+            "5": "5",
+            "6": "6",
+            "7": "7",
+            "8": "8",
+            "9": "9",
+        },
+        "persistent-workspaces": {
+            "*": [1, 2, 3, 4, 5, 6, 7]
+        },
+    },
+
+    "custom/gpu-usage": {
+        "exec": "radeontop -d --limit 1 -i 4 - | cut -c 32-35 -",
+        "format": "{}%  GPU",
+        "return-type": "",
+        "interval": 4
+    },
+
+    "custom/launcher": {
+        "tootltip": false,
+        "format" : " 󰣇",
+        "on-click": "killall rofi || sh ~/.config/rofi/scripts/launcher",
+        "on-click-right": "killall rofi"
+    },
+
+    "cpu": {
+        "interval": 30,
+        "format" : "  {}%",
+        "max-length": 10
+    },
+
+    "memory": {
+        "interval": 1,
+        "format": " {}%",
+        "max-length": 30
+    },
+
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{icon} {percent}%",
+        "format-icons": ["󰃞", "󰃟", "󰃠"],
+        "on-scroll-up": "brightnessctl set 5%+",
+        "on-scroll-down": "brightnessctl set 5%-",
+        "min-length": 6
+    },
+
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "tooltip": false,
+        "format-muted": " Muted",
+        "on-click": "pamixer -t",
+        "on-scroll-up": "pamixer -i 5",
+        "on-scroll-down": "pamixer -d 5",
+        "scroll-step": 5,
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        }
+    },
+
+    "battery": {
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 20
+        },
+        "format": "{icon}  {capacity}% ",
+        "format-charging": " {capacity}% ",
+        "format-plugged": " {capacity}% ",
+        "format-alt": "{time} {icon} ",
+        "format-icons": ["", "", "", "", ""]
+    },
+
+    "tray":{
+        "icon-size":18,
+        "spacing": 10
+    },
+
+    "custom/keyboard": {
+        "exec": "~/.config/waybar/keyboard-layout.sh",
+        "interval": 1,
+        "format": "{}",
+        "tooltip": false,
+        "signal": 1
+    },
+
+    "custom/divider": {
+        "format": "|"
+    }
+}

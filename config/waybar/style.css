@@ -1,0 +1,89 @@
+@import url("/home/kartel/.cache/wal/colors-waybar.css");
+
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font";
+    font-weight: bold;
+    font-size: 16px;
+    min-height: 30px;
+}
+
+window#waybar {
+    background: transparent;
+    color: @foreground;
+}
+
+#custom-keyboard {
+    background: @color0;
+    opacity: 0.9;
+    border-radius: 0 10px 10px 0;
+    padding: 0 10px;
+    margin: 8px 0 0 0;
+}
+
+#workspaces {
+    background: @color0;
+    opacity: 0.9;
+    border-radius: 10px;
+    padding: 0 10px;
+    margin: 8px 0 0 0;
+}
+
+#workspaces button {
+    color: @color7;
+    font-weight: bold;
+    padding: 0 5px;
+    transition: all 0.3s ease;
+    border-radius: 0;
+}
+
+#workspaces button.active {
+    color: @color4;
+    background: alpha(@color4, 0.2);
+    border-radius: 0;
+}
+
+#workspaces button.urgent {
+    color: @color1;
+    animation: blink 2s infinite;
+    border-radius: 0;
+}
+
+#tooltip {
+    opacity: 0.9;
+    background: @color0;
+    border-radius: 10px;
+    border-width: 2px;
+    border-style: solid;
+}
+
+#tray, #custom-gpu-usage, #battery, #pulseaudio, #backlight, #memory, #cpu, #custom-launcher, #clock, #custom-divider {
+    background: @color0;
+    opacity: 0.9;
+    padding: 0px 10px;
+    margin-top: 8px;
+    margin-bottom: 0px;
+}
+
+#tray {
+    margin-right: 8px;
+    border-radius: 10px;
+}
+
+#custom-gpu-usage {
+    border-radius: 0px 10px 10px 0px;
+}
+
+#cpu {
+    border-radius: 10px 0px 0px 10px;
+}
+
+#custom-launcher {
+    margin-left: 8px;
+    border-radius: 10px 0px 0px 10px;
+}
+
+#clock {
+    border-radius: 10px;
+}
